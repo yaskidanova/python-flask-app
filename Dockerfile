@@ -27,6 +27,8 @@ USER pythonuser
 # copy everything into your workdir (source - destination)
 COPY . .
 
+RUN python -m pip install -r requirements.txt
+
 EXPOSE 8000
 
 CMD [ "python3", "-m", "uvicorn", "app:app", "host=0.0.0.0", "port=8000" ]
