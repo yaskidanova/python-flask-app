@@ -12,6 +12,8 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
+RUN python -m pip install -r requirements.txt
+
 # How we can prevent from running as a root user ?
 # USER nobody or
 RUN adduser \
@@ -26,8 +28,6 @@ USER pythonuser
 
 # copy everything into your workdir (source - destination)
 COPY . .
-
-RUN python -m pip install -r requirements.txt
 
 EXPOSE 8000
 
